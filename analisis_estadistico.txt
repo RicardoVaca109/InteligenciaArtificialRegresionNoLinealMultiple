@@ -1,0 +1,34 @@
+El código que realizamos se basa en un modelo de regresión no lienal (múltiple), con mi dataset evaluamos
+nivel de satisfacción(satisfaction_level) de los cleintes en sus actuales trabajos.
+En mi dataset se lográn observar
+Variables numéricas: desempeño, número de proyectos, horas trabajadas, años en la empresa, accidentes 
+laborales y promociones.
+Variables categóricas: departamento y nivel salarial.
+
+Preprocesamiento: 
+Se rellenan datos nan:
+    -Valores faltantes numéricos: se rellenan con la media (correcto).
+    -Valores faltantes categóricos: se rellenan con la moda (también correcto).
+
+Codificación:
+Se utiliza OneHotEncoder para las variables dept y salary al ser variables categóricas
+
+División del conjunto:
+Se divide en entrenamiento (80%) y prueba (20%) con random_state=0 para reproducibilidad.
+
+Modelo:
+Se usa LinearRegression de sklearn para hacer predicciones que se parezcan lo más posible 
+a los valores reales del conjunto de datos.
+
+Visaulización por medio de un gráfico:
+Se comparan las predicciones (y_pred) contra los valores reales (y_test) usando un gráfico de dispersión.
+
+Se calcula también  R Cuadrado r_cuadrado = r2_score(y_test,y_pred)
+Nos da el siguiente resultado = Coeficiente de determinación (R²): 0.0531
+Esto implica que las variables independientes utilizadas (evaluación, proyectos, horas mensuales, 
+años en la empresa, accidentes laborales, promociones, departamento y salario) no capturan adecuadamente 
+los factores determinantes del nivel de satisfacción de los empleados.
+
+También podemos deducir esto ya que en la gráfica los puntos reales estan muy dispersados con los puntos 
+de las predicciones
+En resumen, el modelo actual no es adecuado para predecir con precisión el nivel de satisfacción de los empleado
