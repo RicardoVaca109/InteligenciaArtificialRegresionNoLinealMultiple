@@ -50,6 +50,14 @@ np.set_printoptions(precision=2)
 resultados = np.concatenate((y_pred.reshape(len(y_pred), 1), y_test.reshape(len(y_test), 1)), axis=1)
 print("Predicciones vs Valores Reales:\n", resultados)
 
+# Error cuadratico medio: Mide el promedio de los errores al cuadrado significa Cuanto más bajo, mejor el modelo
+from sklearn.metrics import mean_squared_error, r2_score
+error_cuadratico_medio = mean_squared_error(y_test, y_pred)
+
+# RCuadrado Que tan buena llega a ser una prediccion
+r_cuadrado = r2_score(y_test,y_pred)
+print(f"Error cuadrático medio (MSE): {error_cuadratico_medio:.4f}")
+print(f"Coeficiente de determinación (R²): {r_cuadrado:.4f}")
 
 # 9. Visualización de los resultados
 plt.figure(figsize=(10, 6))
